@@ -53,6 +53,16 @@ LinkedList.prototype.size = function(){
     return count
 }
 
+LinkedList.prototype.headList = function(){
+    if(this.head === null){
+        return this.head
+    }
+    if(this.head !== null){
+        const firstNode = new Node(this.head.value)
+        return firstNode
+    }
+}
+
 const list = new LinkedList()
 
 list.append('hamburger')
