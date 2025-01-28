@@ -26,9 +26,22 @@ LinkedList.prototype.append = function(value){
     return lastNode.next = new Node(value)
 }
 
+LinkedList.prototype.prepend = function(value){
+    if(this.head === null){
+        this.head = new Node(value)
+        return
+    }
+    let taken = this.head
+    taken
+    this.head = new Node(value)
+    this.head.next = taken
+}
+
 const list = new LinkedList()
 
 list.append('hamburger')
 list.append('spinach')
+list.append('snake')
+list.prepend('hello')
 
 console.log(list)
