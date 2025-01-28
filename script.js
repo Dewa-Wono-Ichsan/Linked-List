@@ -73,6 +73,20 @@ LinkedList.prototype.tail = function(){
     return lastNode
 }
 
+LinkedList.prototype.at = function(i){
+    if(i < 0 || i >= this.size()){
+        return 'not available'
+    }
+    if(this.head === null){
+        return this.head
+    }
+    let node = this.head
+    for (let index = 0; index < i; index++) {
+        node = node.next
+    }
+    return new Node(node.value)
+}
+
 const list = new LinkedList()
 
 list.append('hamburger')
