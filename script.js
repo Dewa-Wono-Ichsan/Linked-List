@@ -37,6 +37,22 @@ LinkedList.prototype.prepend = function(value){
     this.head.next = taken
 }
 
+LinkedList.prototype.size = function(){
+    let count = 0
+    if(this.head === null){
+        return count
+    }
+    let lastNode = this.head
+    ++count
+    if(this.head !== null){
+        while (lastNode.next !== null) {
+            lastNode = lastNode.next
+            ++count
+        }
+    }
+    return count
+}
+
 const list = new LinkedList()
 
 list.append('hamburger')
