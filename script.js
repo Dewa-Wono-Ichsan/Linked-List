@@ -87,6 +87,28 @@ LinkedList.prototype.at = function(i){
     return new Node(node.value)
 }
 
+LinkedList.prototype.pop = function(){
+    if(this.size() === 0){
+        return null
+    }
+
+    if(this.size() === 1){
+        const first = this.head
+        this.head = null
+        return first
+    }
+
+    let lastNode = this.tail()
+    let i = this.size() - 2
+    let positionRemove = this.head
+
+    for (let index = 0; index < i; index++) {
+        positionRemove = positionRemove.next
+    }
+    positionRemove.next = null
+    return lastNode
+}
+
 const list = new LinkedList()
 
 list.append('hamburger')
