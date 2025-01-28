@@ -63,6 +63,16 @@ LinkedList.prototype.headList = function(){
     }
 }
 
+LinkedList.prototype.tail = function(){
+    let lastNode = this.head
+    if(lastNode !== null){
+        while (lastNode.next !== null) {
+            lastNode = lastNode.next
+        }
+    }
+    return lastNode
+}
+
 const list = new LinkedList()
 
 list.append('hamburger')
