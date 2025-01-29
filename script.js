@@ -130,6 +130,25 @@ LinkedList.prototype.contains = function(value){
     return false
 }
 
+LinkedList.prototype.find = function(value){
+    let node = this.head
+    let count = 0
+    if(node === null){
+        return null
+    }
+    if(node.value === value){
+        return count
+    }
+    while (node.next !== null) {
+        ++count
+        if(node.next.value === value){
+            return count
+        }
+        node = node.next
+    }
+    return null
+}
+
 const list = new LinkedList()
 
 list.append('hamburger')
@@ -137,4 +156,4 @@ list.append('spinach')
 list.append('snake')
 list.prepend('hello')
 
-console.log(list.contains('snake'))
+console.log(list.find('hamburger'))
