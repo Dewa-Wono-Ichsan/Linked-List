@@ -190,6 +190,27 @@ LinkedList.prototype.insertAt = function(value, index){
     return this
 }
 
+LinkedList.prototype.remove = function(index){
+    if(index >= this.size() || index < 0){
+        return 'not found'
+    }
+    if(index === 0){
+        let node = this.head.next
+        this.head = node
+        return this
+    }
+    let node = this.head.next
+    let remove = this.head
+    for (let i = 0; i < index; i++) {
+        if(i > 0){
+            remove = remove.next
+        }
+        node = node.next
+    }
+    remove.next = node
+    return this
+}
+
 const list = new LinkedList()
 
 list.append('hamburger')
@@ -197,4 +218,4 @@ list.append('spinach')
 list.append('snake')
 list.prepend('hello')
 
-console.log(list.insertAt('turtle', 0))
+console.log(list.remove(3))
