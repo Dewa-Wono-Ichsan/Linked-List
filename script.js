@@ -166,6 +166,30 @@ LinkedList.prototype.toString = function(){
     return stringList
 }
 
+LinkedList.prototype.insertAt = function(value, index){
+    if(index > this.size() || index < 0){
+        return 'not found'
+    }
+    let position = this.head
+    let backNode = this.head
+    if(index === 0){
+        let take = backNode
+        this.head = new Node(value)
+        this.head.next = take
+        return this
+    }
+
+    for (let i = 0; i < index; i++) {
+        if(i > 0){
+            position = position.next
+        }
+        backNode = backNode.next
+    }
+    position.next = new Node(value)
+    position.next.next = backNode
+    return this
+}
+
 const list = new LinkedList()
 
 list.append('hamburger')
@@ -173,4 +197,4 @@ list.append('spinach')
 list.append('snake')
 list.prepend('hello')
 
-console.log(list.toString())
+console.log(list.insertAt('turtle', 0))
