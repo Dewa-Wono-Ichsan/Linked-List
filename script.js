@@ -149,6 +149,23 @@ LinkedList.prototype.find = function(value){
     return null
 }
 
+LinkedList.prototype.toString = function(){
+    let node = this.head
+    if(node === null){
+        return 'null'
+    }
+    let stringList = ''
+    if(node !== null){
+        stringList += `( ${node.value} )`
+        while (node.next !== null) {
+            node = node.next
+            stringList += ` -> ( ${node.value} )`
+        }
+    }
+    stringList += ` -> null`
+    return stringList
+}
+
 const list = new LinkedList()
 
 list.append('hamburger')
@@ -156,4 +173,4 @@ list.append('spinach')
 list.append('snake')
 list.prepend('hello')
 
-console.log(list.find('hamburger'))
+console.log(list.toString())
